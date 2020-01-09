@@ -60,7 +60,7 @@ func installRails() {
 	railsVersion := utils.GetEnv("RAILS_VERSION", "6.0.2.1")
 	output.Info("Now attempting Rails installation: "+railsVersion, 0)
 
-	runner.StreamWithInfo(fmt.Sprintf("gem install rails -v %s", railsVersion), 2)
+	runner.StreamWithInfo(fmt.Sprintf("gem install rails -v %s --no-ri --no-documentation", railsVersion), 2)
 
 }
 
