@@ -3,6 +3,7 @@ package runner
 import (
 	"bufio"
 	"bytes"
+	"io"
 	"os/exec"
 	"strings"
 
@@ -31,8 +32,9 @@ func Run(command string) (string, string, error) {
 func Stream(command string, padding output.Padding) {
 	cmd := buildCommand(command)
 	stdout, _ := cmd.StdoutPipe()
+	stderr, _ := cmd.StderrPipe()
 	cmd.Start()
-	scanner := bufio.NewScanner(stdout)
+	scanner := bufio.NewScanner(io.MultiReader(stdout, stderr))
 	scanner.Split(bufio.ScanLines)
 	for scanner.Scan() {
 		m := scanner.Text()
