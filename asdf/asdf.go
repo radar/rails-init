@@ -35,7 +35,7 @@ func (tool Tool) setupSteps() {
 	if tool.Name == "nodejs" {
 		output.Info("Importing release team keyring for Node JS", 2)
 		asdfDir := os.Getenv("ASDF_DIR")
-		asdfDataDir = OS.Getenv("ASDF_DATA_DIR")
+		asdfDataDir = os.Getenv("ASDF_DATA_DIR")
 		fmt.Println("asdf data dir")
 		fmt.Println(asdfDataDir)
 		runner.StreamWithInfo(fmt.Sprintf("ls -alH %s", asdfDir), 2)
