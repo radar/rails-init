@@ -43,8 +43,6 @@ func (tool Tool) setupSteps() {
 func (tool Tool) installPlugin() {
 	output.Info(fmt.Sprintf("Adding plugin for %s to asdf.", tool.Name), 6)
 	runner.StreamWithInfo("asdf plugin-add "+tool.Name, 6)
-	runner.StreamWithInfo("asdf plugin list", 6)
-	runner.StreamWithInfo("asdf where "+tool.Name, 6)
 }
 
 func (tool Tool) ensureInstalled(expectedVersion string, attempted bool) error {
