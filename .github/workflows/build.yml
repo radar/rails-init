@@ -32,7 +32,7 @@ jobs:
         . /usr/local/opt/asdf/asdf.sh
         cat .tool-versions
         node -v
-        which node
+        which -a node
         asdf plugin list
         bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
         asdf install nodejs 13.6.0
