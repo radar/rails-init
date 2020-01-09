@@ -33,7 +33,6 @@ jobs:
         cat .tool-versions
         node -v
         which node
-        asdf plugin-add nodejs
         asdf plugin list
         bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
         asdf install nodejs 13.6.0
