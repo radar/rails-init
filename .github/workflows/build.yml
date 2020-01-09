@@ -22,14 +22,15 @@ jobs:
     - name: Build Rails Init
       run: go build
 
-    - name: Run rails-init
-      run: ./rails-init
+    # - name: Run rails-init
+    #   run: ./rails-init
 
     - name: Check Node version
       run: |
         node -v
         which node
         . /usr/local/opt/asdf/asdf.sh
+        bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
         asdf install nodejs 13.6.0
         asdf list nodejs
         asdf global nodejs 13.6.0
