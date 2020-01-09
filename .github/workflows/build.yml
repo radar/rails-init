@@ -12,6 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    # Homebrew package dependency
+    - name: Install asdf
+      run: brew install asdf
+
     - name: Install Golang
       run: brew install golang
 
