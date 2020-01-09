@@ -12,11 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install rails-init
-      run: |
-        brew tap radar/rails-init git@github.com:radar/rails-init-homebrew-tap
-        brew install rails-init
+    - name: run
+      uses: cedrickring/golang-action@1.4.1
 
     - name: Run rails-init
-      run: |
-        rails-init
+      run: ./rails-init
