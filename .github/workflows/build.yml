@@ -27,14 +27,25 @@ jobs:
         . /usr/local/opt/asdf/asdf.sh
         ./rails-init
 
+    - name: Check asdf current
+      run: |
+        asdf current
+
+
     - name: Check Node version
       run: |
+        . /usr/local/opt/asdf/asdf.sh
+        which node
         node -v
 
     - name: Check Ruby version
       run: |
+        . /usr/local/opt/asdf/asdf.sh
+        which ruby
         ruby -v
 
     - name: Check Rails version
       run: |
+        . /usr/local/opt/asdf/asdf.sh
+        which rails
         rails -v
