@@ -30,6 +30,7 @@ jobs:
         node -v
         which node
         . /usr/local/opt/asdf/asdf.sh
+        asdf install nodejs 13.6.0
         asdf list nodejs
         asdf global nodejs 13.6.0
         node -v
