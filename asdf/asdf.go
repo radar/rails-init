@@ -33,7 +33,7 @@ func CheckInstallation(name string, expectedVersion string) error {
 func (tool Tool) setupSteps() {
 	if tool.Name == "nodejs" {
 		output.Info("Importing release team keyring for Node JS", 2)
-		runner.StreamWithInfo("ls -al ~/.asdf/plugins/nodejs/bin/", 2)
+		runner.StreamWithInfo("ls -al ~/.asdf/plugins/nodejs", 2)
 		runner.StreamWithInfo("bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring", 2)
 	}
 }
@@ -42,6 +42,7 @@ func (tool Tool) installPlugin() {
 	output.Info(fmt.Sprintf("Adding plugin for %s to asdf.", tool.Name), 6)
 	runner.StreamWithInfo("asdf plugin-add "+tool.Name, 6)
 	runner.StreamWithInfo("asdf plugin list", 6)
+	runner.StreamWithInfo("asdf where"+tool.Name, 6)
 }
 
 func (tool Tool) ensureInstalled(expectedVersion string, attempted bool) error {
