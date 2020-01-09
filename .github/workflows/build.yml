@@ -25,6 +25,11 @@ jobs:
     - name: Run rails-init
       run: ./rails-init
 
+    - name: Check Node version
+      run: |
+        node -v
+        which node
+
 
     # - name: Install rails-init
     #   run: |
