@@ -32,9 +32,9 @@ jobs:
         node -v
 
     - name: Check Ruby version
-        run: |
-          ruby -v
+      run: |
+        ruby -v
 
     - name: Check Rails version
-        run: |
-          ruby -v
+      run: |
+        rails -v
