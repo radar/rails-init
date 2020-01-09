@@ -30,6 +30,7 @@ jobs:
     - name: Check Node version
       run: |
         . /usr/local/opt/asdf/asdf.sh
+        cat .tool-versions
         node -v
         which node
         asdf plugin-add nodejs
