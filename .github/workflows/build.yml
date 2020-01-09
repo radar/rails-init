@@ -22,23 +22,25 @@ jobs:
     - name: Build Rails Init
       run: go build
 
-    # - name: Run rails-init
-    #   run: ./rails-init
-
-    - name: Check Node version
+    - name: Run rails-init
       run: |
-        node -v
-        which node
         . /usr/local/opt/asdf/asdf.sh
-        asdf plugin-add nodejs
-        brew install coreutils gpg
-        ls -al ~/.asdf/plugins/nodejs/bin
-        bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-        asdf install nodejs 13.6.0
-        asdf list nodejs
-        asdf global nodejs 13.6.0
-        node -v
-        which node
+        ./rails-init
+
+    # - name: Check Node version
+    #   run: |
+    #     node -v
+    #     which node
+
+    #     asdf plugin-add nodejs
+    #     brew install coreutils gpg
+    #     ls -al ~/.asdf/plugins/nodejs/bin
+    #     bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+    #     asdf install nodejs 13.6.0
+    #     asdf list nodejs
+    #     asdf global nodejs 13.6.0
+    #     node -v
+    #     which node
 
 
     # - name: Install rails-init
