@@ -32,11 +32,13 @@ jobs:
         asdf current
 
 
-    - name: Check Node version
+    - name: Check Node & yarn versions
       run: |
         . /usr/local/opt/asdf/asdf.sh
         which node
         node -v
+        which yarn
+        yarn -v
 
     - name: Check Ruby version
       run: |
