@@ -3,7 +3,7 @@ package asdf
 import (
 	"errors"
 	"fmt"
-	"os"
+	"os/user"
 	"strings"
 
 	"github.com/radar/rails-init/output"
@@ -34,13 +34,11 @@ func CheckInstallation(name string, expectedVersion string) error {
 func (tool Tool) setupSteps() {
 	if tool.Name == "nodejs" {
 		output.Info("Importing release team keyring for Node JS", 2)
-		asdfDir := os.Getenv("ASDF_DIR")
-		asdfDataDir := os.Getenv("ASDF_DATA_DIR")
-		fmt.Println("asdf data dir")
-		fmt.Println(asdfDataDir)
-		runner.StreamWithInfo(fmt.Sprintf("ls -alH %s", asdfDir), 2)
-		runner.StreamWithInfo(fmt.Sprintf("ls -alH ~/.asdf"), 2)
-		runner.StreamWithInfo(fmt.Sprintf("bash %s/plugins/nodejs/bin/import-release-team-keyring", asdfDir), 2)
+		usr, _ := user.Current()
+		homeDir := usr.HomeDir
+		fmt.Println("User's home directory is...")
+		fmt.Println(homeDir)
+		runner.StreamWithInfo(fmt.Sprintf("bash %s/.asdf/plugins/nodejs/bin/import-release-team-keyring", homeDir), 2)
 	}
 }
 
