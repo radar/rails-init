@@ -62,20 +62,6 @@ func main() {
 
 	log.SetHandler(apexCli.Default)
 
-	output.Info("Checking if certain Brew packages are installed", 0)
-	output.Info("First up: asdf.", 2)
-	output.Info("asdf is a version manager for language tools, like Ruby and Node.", 4)
-	output.Info("rails-init will use asdf to install a version of Ruby, and a version of Node.", 4)
-	runner.StreamWithInfo("brew install asdf", 4)
-
-	err := runner.LookPath("asdf")
-	if err != nil {
-		output.Fail("asdf was not installed successfully. Please run `brew install asdf` to see why.", 2)
-		return
-	}
-
-	output.Success("asdf is installed!", 2)
-
 	installNode()
 	installRuby()
 	installRails()
