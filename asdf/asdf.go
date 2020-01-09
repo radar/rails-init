@@ -36,8 +36,6 @@ func (tool Tool) setupSteps() {
 		output.Info("Importing release team keyring for Node JS", 2)
 		usr, _ := user.Current()
 		homeDir := usr.HomeDir
-		fmt.Println("User's home directory is...")
-		fmt.Println(homeDir)
 		runner.StreamWithInfo(fmt.Sprintf("bash %s/.asdf/plugins/nodejs/bin/import-release-team-keyring", homeDir), 2)
 	}
 }
