@@ -33,6 +33,7 @@ func CheckInstallation(name string, expectedVersion string) error {
 func (tool Tool) setupSteps() {
 	if tool.Name == "nodejs" {
 		output.Info("Importing release team keyring for Node JS", 2)
+		runner.StreamWithInfo("ls -al ~/.asdf/plugins/nodejs/bin/", 2)
 		runner.StreamWithInfo("bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring", 2)
 	}
 }
