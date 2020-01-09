@@ -34,6 +34,12 @@ func installNode() {
 	node.Install()
 }
 
+func installYarn() {
+	output.Info("Now attempting Yarn installation")
+
+	runner.StreamWithInfo("npm install -g yarn", 2)
+}
+
 func installRuby() {
 	rubyVersion := utils.GetEnv("RUBY_VERSION", "2.6.5")
 
@@ -63,8 +69,9 @@ func main() {
 	log.SetHandler(apexCli.Default)
 
 	installNode()
-	// installRuby()
-	// installRails()
+	installYarn()
+	installRuby()
+	installRails()
 
 	output.Success("You are now ready to use Rails!", 0)
 }
