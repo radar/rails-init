@@ -13,8 +13,8 @@ jobs:
     - uses: actions/checkout@v2
 
     # Homebrew package dependency
-    - name: Install asdf
-      run: brew install asdf
+    - name: Install asdf, coreutils, gpg
+      run: brew install asdf coreutils gpg
 
     - name: Install Golang
       run: brew install golang

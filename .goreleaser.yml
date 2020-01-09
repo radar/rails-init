@@ -29,6 +29,8 @@ brews:
 
     dependencies:
       - asdf
+      - coreutils
+      - gpg
 
     folder: Formula
 
