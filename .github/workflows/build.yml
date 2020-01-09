@@ -29,25 +29,12 @@ jobs:
 
     - name: Check Node version
       run: |
-        . /usr/local/opt/asdf/asdf.sh
-        cat .tool-versions
         node -v
-        which -a node
-        asdf plugin list
-        asdf current
-        bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-        asdf install nodejs 13.6.0
-        asdf list nodejs
-        asdf current
-        node -v
-    #     which node
 
+    - name: Check Ruby version
+        run: |
+          ruby -v
 
-    # - name: Install rails-init
-    #   run: |
-    #     brew tap radar/rails-init git@github.com:radar/rails-init-homebrew-tap
-    #     brew install rails-init
-
-    # - name: Run rails-init
-    #   run: |
-    #     rails-init
+    - name: Check Rails version
+        run: |
+          ruby -v
