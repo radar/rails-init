@@ -1,4 +1,4 @@
-name: Ruby
+name: Smoke Test
 
 on: [push]
 
