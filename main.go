@@ -63,8 +63,8 @@ func main() {
 	log.SetHandler(apexCli.Default)
 
 	installNode()
-	installRuby()
-	installRails()
+	// installRuby()
+	// installRails()
 
 	output.Success("You are now ready to use Rails!", 0)
 }
