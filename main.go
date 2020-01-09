@@ -35,9 +35,9 @@ func installNode() {
 }
 
 func installYarn() {
-	output.Info("Now attempting Yarn installation")
+	output.Info("Now attempting Yarn installation (necessary for Webpacker)", 2)
 
-	runner.StreamWithInfo("npm install -g yarn", 2)
+	runner.StreamWithInfo("npm install -g yarn", 4)
 }
 
 func installRuby() {
