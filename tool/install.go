@@ -32,8 +32,8 @@ func (tool Tool) Install() error {
 	}
 
 	checker := version.Checker{
-		tool.ExpectedVersion,
-		actualVersion,
+		Expected: tool.ExpectedVersion,
+		Actual:   actualVersion,
 	}
 
 	err = checker.Compare(tool.Name)
