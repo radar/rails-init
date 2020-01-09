@@ -27,10 +27,11 @@ jobs:
         . /usr/local/opt/asdf/asdf.sh
         ./rails-init
 
-    # - name: Check Node version
-    #   run: |
-    #     node -v
-    #     which node
+    - name: Check Node version
+      run: |
+        node -v
+        which node
+        asdf plugin list
 
     #     asdf plugin-add nodejs
     #     brew install coreutils gpg
