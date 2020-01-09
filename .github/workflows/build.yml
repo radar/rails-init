@@ -34,10 +34,11 @@ jobs:
         node -v
         which -a node
         asdf plugin list
+        asdf current
         bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
         asdf install nodejs 13.6.0
         asdf list nodejs
-        asdf global nodejs 13.6.0
+        asdf current
         node -v
     #     which node
 
