@@ -29,18 +29,16 @@ jobs:
 
     - name: Check Node version
       run: |
+        . /usr/local/opt/asdf/asdf.sh
         node -v
         which node
+        asdf plugin-add nodejs
         asdf plugin list
-
-    #     asdf plugin-add nodejs
-    #     brew install coreutils gpg
-    #     ls -al ~/.asdf/plugins/nodejs/bin
-    #     bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-    #     asdf install nodejs 13.6.0
-    #     asdf list nodejs
-    #     asdf global nodejs 13.6.0
-    #     node -v
+        bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+        asdf install nodejs 13.6.0
+        asdf list nodejs
+        asdf global nodejs 13.6.0
+        node -v
     #     which node
 
 

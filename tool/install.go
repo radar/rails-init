@@ -45,7 +45,10 @@ func (tool Tool) Install() error {
 }
 
 func (tool Tool) setLocal() {
-	runner.Run(fmt.Sprintf("asdf local %s %s", tool.PackageName, tool.ExpectedVersion))
+	fmt.Println("Setting local version!!")
+	command := fmt.Sprintf("asdf local %s %s", tool.PackageName, tool.ExpectedVersion)
+	fmt.Println(command)
+	runner.Run(command)
 
 }
 
