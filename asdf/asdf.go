@@ -100,5 +100,5 @@ func (t Tool) Install(version string) {
 	installCommand := fmt.Sprintf("asdf install %s %s", t.Name, version)
 	output.Info("Attempting installation:", 4)
 	runner.StreamWithInfo(installCommand, 6)
-	runner.StreamWithInfo("asdf list nodejs")
+	runner.StreamWithInfo("asdf list nodejs", 6)
 }
