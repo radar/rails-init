@@ -27,8 +27,9 @@ jobs:
         . /usr/local/opt/asdf/asdf.sh
         ./rails-init
 
-    - name: Check asdf current
+    - name: Check asdf list & current
       run: |
+        asdf list
         asdf current
 
 
