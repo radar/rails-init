@@ -12,8 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Curl ryanbigg.com
-      run: curl https://ryanbigg.com
+    - name: Curl github.com
+      run: curl https://github.com
 
     # Homebrew package dependency
     - name: Install asdf + gpg
