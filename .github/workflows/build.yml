@@ -10,10 +10,10 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      run: curl https://ryanbigg.com/
-
-    steps:
     - uses: actions/checkout@v2
+
+    - name: Curl ryanbigg.com
+      run: curl https://ryanbigg.com
 
     # Homebrew package dependency
     - name: Install asdf + gpg
