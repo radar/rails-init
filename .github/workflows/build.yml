@@ -10,6 +10,9 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      run: curl https://ryanbigg.com/
+
+    steps:
     - uses: actions/checkout@v2
 
     # Homebrew package dependency
