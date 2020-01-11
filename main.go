@@ -16,7 +16,7 @@ func main() {
 	if runtime.GOOS == "darwin" {
 		mac.Install()
 	} else {
-		output.Fail("Unsupported OS: " + runtime.GOOS)
+		output.Fail("Unsupported OS: "+runtime.GOOS, 0)
 		return
 	}
 
