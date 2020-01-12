@@ -3,11 +3,11 @@ package asdf
 import (
 	"errors"
 	"fmt"
-	"os/user"
 	"strings"
 
 	"github.com/radar/rails-init/output"
 	"github.com/radar/rails-init/runner"
+	"github.com/radar/rails-init/utils"
 )
 
 type Tool struct {
@@ -34,15 +34,16 @@ func CheckInstallation(name string, expectedVersion string) error {
 func (tool Tool) setupSteps() {
 	if tool.Name == "nodejs" {
 		output.Info("Importing release team keyring for Node JS", 2)
-		usr, _ := user.Current()
-		homeDir := usr.HomeDir
-		runner.StreamWithInfo(fmt.Sprintf("bash %s/.asdf/plugins/nodejs/bin/import-release-team-keyring", homeDir), 2)
+		importReleaseTeamKeyring := utils.RelativeToHome(".asdf/plugins/nodejs/bin/import-release-team-keyring")
+
+		runner.StreamWithInfo(fmt.Sprintf("bash %s", importReleaseTeamKeyring), 2)
 	}
 }
 
 func (tool Tool) installPlugin() {
 	output.Info(fmt.Sprintf("Adding plugin for %s to asdf.", tool.Name), 6)
 	runner.StreamWithInfo("asdf plugin-add "+tool.Name, 6)
+	runner.StreamWithInfo("asdf plugin list", 6)
 }
 
 func (tool Tool) ensureInstalled(expectedVersion string, attempted bool) error {

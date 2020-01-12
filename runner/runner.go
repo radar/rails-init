@@ -24,6 +24,10 @@ func Run(command string) (string, string, error) {
 		if _, ok := err.(*exec.ExitError); ok {
 			return stdout.String(), stderr.String(), err
 		}
+
+		if err == exec.ErrNotFound {
+			return stdout.String(), stderr.String(), err
+		}
 	}
 
 	return stdout.String(), stderr.String(), nil

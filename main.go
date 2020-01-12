@@ -2,32 +2,28 @@ package main
 
 import (
 	"runtime"
-	"strings"
 
 	"github.com/apex/log"
 	apexCli "github.com/apex/log/handlers/cli"
+	"github.com/radar/rails-init/detect"
 	"github.com/radar/rails-init/mac"
 	"github.com/radar/rails-init/output"
-	"github.com/radar/rails-init/runner"
+	"github.com/radar/rails-init/ubuntu"
 )
 
 func main() {
 
 	log.SetHandler(apexCli.Default)
 
-	if runtime.GOOS == "darwin" {
+	if detect.IsMac() {
 		mac.Install()
-
-	} else if runtime.GOOS == "linux" {
-		stdout, _, _ := runner.Run("lsb_release -a")
-		if strings.Contains(stdout, "Ubuntu") {
-			ubuntu.Install()
-		} else {
-			output.Fail("Unsupported OS: "+runtime.GOOS, 0)
-		}
-
-		return
+	} else if detect.IsUbuntu() {
+		ubuntu.Install()
+	} else {
+		output.Fail("Unsupported OS: "+runtime.GOOS, 0)
 	}
+
+	return
 
 	output.Success("You are now ready to use Rails!", 0)
 }
